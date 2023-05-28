@@ -1,3 +1,6 @@
+using LearningCommonsGui.Models;
+using LearningCommonsGui.Models.Borrowers;
+
 namespace LearningCommonsGui
 {
     public partial class LoginForm : Form
@@ -16,7 +19,7 @@ namespace LearningCommonsGui
 
         private void TxtIdNumber_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode != Keys.Enter || TxtIdNumber is null)
+            if (e.KeyCode != Keys.Enter)
             {
                 return;
             }
@@ -24,14 +27,30 @@ namespace LearningCommonsGui
             e.Handled = true;
             e.SuppressKeyPress = true;
 
-            bool isValidId = ValidateCredentials(TxtIdNumber.Text);
+            var idNumber = TxtIdNumber.Text;
 
-            if (!isValidId)
+            if (String.IsNullOrEmpty(idNumber))
+            {
+                LabelValidation.Text = "Enter you ID number";
+                LabelValidation.Visible = true;
+                return;
+            }
+
+            if (!ValidateCredentials(idNumber))
             {
                 LabelValidation.Visible = true;
                 return;
             }
             LabelValidation.Visible = false;
+
+            if (idNumber.StartsWith('s'))
+            {
+                Globals.IsStudent = true;
+                Globals.User = new Student(idNumber);
+            } else
+            {
+                Globals.User = new Staff(idNumber);
+            }
 
             var loginFormLocation = this.Location;
             var dashboard = new Dashboard

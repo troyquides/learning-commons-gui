@@ -49,7 +49,7 @@
             ClientSize = new Size(943, 787);
             Controls.Add(DataGridBookList);
             Name = "FormBookList";
-            Text = "BookList";
+            Text = "Book List";
             ((System.ComponentModel.ISupportInitialize)DataGridBookList).EndInit();
             ResumeLayout(false);
         }

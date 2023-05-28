@@ -18,5 +18,14 @@ namespace LearningCommonsGui.Models
             Title = title;
             Author = author;
         }
+
+        
+        public string DisplayName
+        {
+            get
+            {
+                return $"{Title} by {Author} ({Isbn})";
+            }
+        }
     }
 }

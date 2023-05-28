@@ -35,7 +35,6 @@
             BtnSubmitBook = new Button();
             LabelIsbn = new Label();
             TxtIsbn = new TextBox();
-            label1 = new Label();
             LabelBookValidation = new Label();
             SuspendLayout();
             // 
@@ -104,15 +103,6 @@
             TxtIsbn.Size = new Size(418, 55);
             TxtIsbn.TabIndex = 4;
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(0, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(59, 25);
-            label1.TabIndex = 7;
-            label1.Text = "label1";
-            // 
             // LabelBookValidation
             // 
             LabelBookValidation.AutoSize = true;
@@ -131,7 +121,6 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(810, 622);
             Controls.Add(LabelBookValidation);
-            Controls.Add(label1);
             Controls.Add(TxtIsbn);
             Controls.Add(LabelIsbn);
             Controls.Add(BtnSubmitBook);
@@ -154,7 +143,6 @@
         private Button BtnSubmitBook;
         private Label LabelIsbn;
         private TextBox TxtIsbn;
-        private Label label1;
         private Label LabelBookValidation;
     }
 }
