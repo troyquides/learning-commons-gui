@@ -20,13 +20,23 @@ namespace LearningCommonsGui
 
         private void BtnSubmitBook_Click(object sender, EventArgs e)
         {
-            if (Utils.CheckDuplicateIsbn(Globals.Books, TxtIsbn.Text))
+            if (String.IsNullOrEmpty(TxtIsbn.Text)
+                || String.IsNullOrEmpty(TxtBookTitle.Text)
+                || String.IsNullOrEmpty(TxtBookAuthor.Text))
             {
                 LabelBookValidation.Visible = true;
+                LabelBookValidation.Text = "Please fill in all fields.";
                 return;
             }
 
-            LabelBookValidation.Visible = true;
+
+            if (Utils.CheckDuplicateIsbn(Globals.Books, TxtIsbn.Text))
+            {
+                LabelBookValidation.Visible = true;
+                LabelBookValidation.Text = "Duplicate ISBN";
+                return;
+            }
+
             var book = new Book(TxtIsbn.Text, TxtBookTitle.Text, TxtBookAuthor.Text);
 
             Globals.Books.Add(book);
