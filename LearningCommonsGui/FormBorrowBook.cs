@@ -68,6 +68,7 @@ namespace LearningCommonsGui
                 dataRow["Author"] = borrowResult.Book.Author;
                 dataRow["Date Borrowed"] = borrowResult.BorrowDate;
                 dataRow["Date Returned"] = borrowResult.ReturnDate;
+                dataRow["Loan Period"] = borrowResult.LoanPeriod;
                 dataRow["Penalty"] = borrowResult.ComputePenalty();
                 Globals.BorrowingsDataTable.Rows.Add(dataRow);
 
