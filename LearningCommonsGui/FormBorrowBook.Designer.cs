@@ -97,7 +97,7 @@
             // BtnSubmitBorrow
             // 
             BtnSubmitBorrow.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            BtnSubmitBorrow.Location = new Point(384, 421);
+            BtnSubmitBorrow.Location = new Point(391, 466);
             BtnSubmitBorrow.Name = "BtnSubmitBorrow";
             BtnSubmitBorrow.Size = new Size(189, 72);
             BtnSubmitBorrow.TabIndex = 6;

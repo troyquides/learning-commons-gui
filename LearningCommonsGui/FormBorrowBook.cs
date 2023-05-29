@@ -33,27 +33,27 @@ namespace LearningCommonsGui
                 return;
             }
 
-            var user = Globals.User;
-            if (user.Borrowings.Count >= user.BorrowLimit)
-            {
-                LabelBorrowValidation.Text = "Borrow limit reached";
-                LabelBorrowValidation.Visible = true;
-                return;
-            }
-
             var selectedIsbn = (ComboSelectedBook.SelectedItem as dynamic).Isbn;
             var book = Globals.Books.Find(x => x.Isbn.Equals(selectedIsbn));
 
             if (book is null)
             {
+                LabelBorrowValidation.Text = "Invalid book.";
                 LabelBorrowValidation.Visible = true;
-                LabelBorrowValidation.Text = $"Can't find book with ISBN {selectedIsbn}";
                 return;
             }
 
             var borrowDate = DateOnly.FromDateTime(DatePickerBorrowDate.Value);
             var returnDate = DateOnly.FromDateTime(DatePickerReturnDate.Value);
 
+            if (borrowDate >= returnDate)
+            {
+                LabelBorrowValidation.Visible = true;
+                LabelBorrowValidation.Text = "Borrow date must be before the return date";
+                return;
+            }
+
+            var user = Globals.User;
             var borrowResult = user.Borrow(book, borrowDate, returnDate);
             if (borrowResult is not null)
             {

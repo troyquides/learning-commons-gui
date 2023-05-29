@@ -33,11 +33,13 @@
             BtnBorrowBook = new Button();
             LabelWelcome = new Label();
             DataGridBorrowList = new DataGridView();
+            LabelBorrowHistoryList = new Label();
             ((System.ComponentModel.ISupportInitialize)DataGridBorrowList).BeginInit();
             SuspendLayout();
             // 
             // BtnAddBook
             // 
+            BtnAddBook.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
             BtnAddBook.Location = new Point(94, 142);
             BtnAddBook.Name = "BtnAddBook";
             BtnAddBook.Size = new Size(202, 112);
@@ -48,6 +50,7 @@
             // 
             // BtnShowBooks
             // 
+            BtnShowBooks.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
             BtnShowBooks.Location = new Point(349, 142);
             BtnShowBooks.Name = "BtnShowBooks";
             BtnShowBooks.Size = new Size(202, 112);
@@ -58,6 +61,7 @@
             // 
             // BtnBorrowBook
             // 
+            BtnBorrowBook.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
             BtnBorrowBook.Location = new Point(607, 142);
             BtnBorrowBook.Name = "BtnBorrowBook";
             BtnBorrowBook.Size = new Size(202, 112);
@@ -85,11 +89,22 @@
             DataGridBorrowList.Size = new Size(715, 225);
             DataGridBorrowList.TabIndex = 4;
             // 
+            // LabelBorrowHistoryList
+            // 
+            LabelBorrowHistoryList.AutoSize = true;
+            LabelBorrowHistoryList.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
+            LabelBorrowHistoryList.Location = new Point(94, 406);
+            LabelBorrowHistoryList.Name = "LabelBorrowHistoryList";
+            LabelBorrowHistoryList.Size = new Size(185, 36);
+            LabelBorrowHistoryList.TabIndex = 5;
+            LabelBorrowHistoryList.Text = "Borrow History";
+            // 
             // Dashboard
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(905, 753);
+            Controls.Add(LabelBorrowHistoryList);
             Controls.Add(DataGridBorrowList);
             Controls.Add(LabelWelcome);
             Controls.Add(BtnBorrowBook);
@@ -110,5 +125,6 @@
         private Button BtnBorrowBook;
         private Label LabelWelcome;
         private DataGridView DataGridBorrowList;
+        private Label LabelBorrowHistoryList;
     }
 }
