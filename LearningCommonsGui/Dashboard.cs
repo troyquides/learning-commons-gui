@@ -20,6 +20,8 @@ namespace LearningCommonsGui
 
             Globals.BorrowingsDataTable.Columns.Add("Title", typeof(string));
             Globals.BorrowingsDataTable.Columns.Add("Author", typeof(string));
+            Globals.BorrowingsDataTable.Columns.Add("Date Borrowed", typeof(DateOnly));
+            Globals.BorrowingsDataTable.Columns.Add("Date Returned", typeof(DateOnly));
             Globals.BorrowingsDataTable.Columns.Add("Penalty", typeof(string));
 
             foreach (Borrowing borrowing in Globals.User.Borrowings)
