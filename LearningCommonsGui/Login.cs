@@ -46,7 +46,7 @@ namespace LearningCommonsGui
             if (idNumber.StartsWith('s'))
             {
                 Globals.IsStudent = true;
-                Globals.User = new Student(idNumber);
+                Globals.User = new Student(idNumber, 5);
             } else
             {
                 Globals.User = new Staff(idNumber);

@@ -8,7 +8,7 @@ namespace LearningCommonsGui.Models.Borrowers
 {
     internal class Student: Person
     {
-        public Student(string idNumber) : base(idNumber, 1) { }
+        public Student(string idNumber, int borrowLimit) : base(idNumber, borrowLimit) { }
 
         public override Borrowing? Borrow(Book book, DateOnly borrowDate, DateOnly returnDate, int loanPeriod = 1)
         {
