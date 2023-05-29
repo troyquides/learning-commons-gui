@@ -83,9 +83,12 @@
             // 
             // DataGridBorrowList
             // 
+            DataGridBorrowList.AllowUserToAddRows = false;
+            DataGridBorrowList.AllowUserToDeleteRows = false;
             DataGridBorrowList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             DataGridBorrowList.Location = new Point(94, 356);
             DataGridBorrowList.Name = "DataGridBorrowList";
+            DataGridBorrowList.ReadOnly = true;
             DataGridBorrowList.RowHeadersWidth = 62;
             DataGridBorrowList.RowTemplate.Height = 33;
             DataGridBorrowList.Size = new Size(715, 225);

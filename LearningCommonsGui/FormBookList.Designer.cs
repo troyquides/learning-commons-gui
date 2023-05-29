@@ -34,9 +34,13 @@
             // 
             // DataGridBookList
             // 
+            DataGridBookList.AllowUserToAddRows = false;
+            DataGridBookList.AllowUserToDeleteRows = false;
+            DataGridBookList.AllowUserToOrderColumns = true;
             DataGridBookList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             DataGridBookList.Location = new Point(12, 12);
             DataGridBookList.Name = "DataGridBookList";
+            DataGridBookList.ReadOnly = true;
             DataGridBookList.RowHeadersWidth = 62;
             DataGridBookList.RowTemplate.Height = 33;
             DataGridBookList.Size = new Size(919, 763);
