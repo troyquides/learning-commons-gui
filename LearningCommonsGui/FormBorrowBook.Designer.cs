@@ -36,6 +36,9 @@
             DatePickerReturnDate = new DateTimePicker();
             BtnSubmitBorrow = new Button();
             LabelBorrowValidation = new Label();
+            LabelLoanPeriod = new Label();
+            NumericLoanPeriod = new NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)NumericLoanPeriod).BeginInit();
             SuspendLayout();
             // 
             // ComboSelectedBook
@@ -110,18 +113,39 @@
             LabelBorrowValidation.AutoSize = true;
             LabelBorrowValidation.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             LabelBorrowValidation.ForeColor = Color.Red;
-            LabelBorrowValidation.Location = new Point(367, 301);
+            LabelBorrowValidation.Location = new Point(367, 390);
             LabelBorrowValidation.Name = "LabelBorrowValidation";
             LabelBorrowValidation.Size = new Size(169, 32);
             LabelBorrowValidation.TabIndex = 7;
             LabelBorrowValidation.Text = "Validation Text";
             LabelBorrowValidation.Visible = false;
             // 
+            // LabelLoanPeriod
+            // 
+            LabelLoanPeriod.AutoSize = true;
+            LabelLoanPeriod.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            LabelLoanPeriod.Location = new Point(75, 318);
+            LabelLoanPeriod.Name = "LabelLoanPeriod";
+            LabelLoanPeriod.Size = new Size(216, 48);
+            LabelLoanPeriod.TabIndex = 8;
+            LabelLoanPeriod.Text = "Loan Period:";
+            // 
+            // NumericLoanPeriod
+            // 
+            NumericLoanPeriod.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            NumericLoanPeriod.Location = new Point(367, 311);
+            NumericLoanPeriod.Name = "NumericLoanPeriod";
+            NumericLoanPeriod.Size = new Size(170, 55);
+            NumericLoanPeriod.TabIndex = 9;
+            NumericLoanPeriod.TextAlign = HorizontalAlignment.Right;
+            // 
             // FormBorrowBook
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1040, 610);
+            Controls.Add(NumericLoanPeriod);
+            Controls.Add(LabelLoanPeriod);
             Controls.Add(LabelBorrowValidation);
             Controls.Add(BtnSubmitBorrow);
             Controls.Add(DatePickerReturnDate);
@@ -132,6 +156,7 @@
             Controls.Add(ComboSelectedBook);
             Name = "FormBorrowBook";
             Text = "Borrow Book";
+            ((System.ComponentModel.ISupportInitialize)NumericLoanPeriod).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -146,5 +171,7 @@
         private DateTimePicker DatePickerReturnDate;
         private Button BtnSubmitBorrow;
         private Label LabelBorrowValidation;
+        private Label LabelLoanPeriod;
+        private NumericUpDown NumericLoanPeriod;
     }
 }

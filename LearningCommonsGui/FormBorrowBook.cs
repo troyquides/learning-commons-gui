@@ -54,7 +54,13 @@ namespace LearningCommonsGui
             }
 
             var user = Globals.User;
-            var borrowResult = user.Borrow(book, borrowDate, returnDate);
+            var borrowResult = user.Borrow(
+                book,
+                borrowDate,
+                returnDate,
+                Decimal.ToInt32(NumericLoanPeriod.Value)
+            );
+
             if (borrowResult is not null)
             {
                 var dataRow = Globals.BorrowingsDataTable.NewRow();
