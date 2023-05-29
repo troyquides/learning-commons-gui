@@ -71,7 +71,11 @@ namespace LearningCommonsGui
                 Location = dashboardFormLocation,
                 StartPosition = FormStartPosition.Manual
             };
-            formBorrowBook.FormClosing += delegate { this.Show(); };
+            formBorrowBook.FormClosing += delegate
+            {
+                LabelPenaltyValue.Text = Globals.TotalPenalty.ToString();
+                this.Show();
+            };
             formBorrowBook.Show();
             this.Hide();
         }

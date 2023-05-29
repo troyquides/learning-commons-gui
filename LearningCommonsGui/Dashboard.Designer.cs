@@ -34,6 +34,8 @@
             LabelWelcome = new Label();
             DataGridBorrowList = new DataGridView();
             LabelBorrowHistoryList = new Label();
+            LabelPenaltyText = new Label();
+            LabelPenaltyValue = new Label();
             ((System.ComponentModel.ISupportInitialize)DataGridBorrowList).BeginInit();
             SuspendLayout();
             // 
@@ -82,7 +84,7 @@
             // DataGridBorrowList
             // 
             DataGridBorrowList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DataGridBorrowList.Location = new Point(94, 450);
+            DataGridBorrowList.Location = new Point(94, 356);
             DataGridBorrowList.Name = "DataGridBorrowList";
             DataGridBorrowList.RowHeadersWidth = 62;
             DataGridBorrowList.RowTemplate.Height = 33;
@@ -93,17 +95,39 @@
             // 
             LabelBorrowHistoryList.AutoSize = true;
             LabelBorrowHistoryList.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
-            LabelBorrowHistoryList.Location = new Point(94, 406);
+            LabelBorrowHistoryList.Location = new Point(94, 312);
             LabelBorrowHistoryList.Name = "LabelBorrowHistoryList";
             LabelBorrowHistoryList.Size = new Size(185, 36);
             LabelBorrowHistoryList.TabIndex = 5;
             LabelBorrowHistoryList.Text = "Borrow History";
+            // 
+            // LabelPenaltyText
+            // 
+            LabelPenaltyText.AutoSize = true;
+            LabelPenaltyText.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
+            LabelPenaltyText.Location = new Point(94, 639);
+            LabelPenaltyText.Name = "LabelPenaltyText";
+            LabelPenaltyText.Size = new Size(166, 36);
+            LabelPenaltyText.TabIndex = 6;
+            LabelPenaltyText.Text = "Total Penalty:";
+            // 
+            // LabelPenaltyValue
+            // 
+            LabelPenaltyValue.AutoSize = true;
+            LabelPenaltyValue.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
+            LabelPenaltyValue.Location = new Point(266, 639);
+            LabelPenaltyValue.Name = "LabelPenaltyValue";
+            LabelPenaltyValue.Size = new Size(29, 36);
+            LabelPenaltyValue.TabIndex = 7;
+            LabelPenaltyValue.Text = "0";
             // 
             // Dashboard
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(905, 753);
+            Controls.Add(LabelPenaltyValue);
+            Controls.Add(LabelPenaltyText);
             Controls.Add(LabelBorrowHistoryList);
             Controls.Add(DataGridBorrowList);
             Controls.Add(LabelWelcome);
@@ -126,5 +150,7 @@
         private Label LabelWelcome;
         private DataGridView DataGridBorrowList;
         private Label LabelBorrowHistoryList;
+        private Label LabelPenaltyText;
+        private Label LabelPenaltyValue;
     }
 }

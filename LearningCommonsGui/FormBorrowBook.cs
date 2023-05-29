@@ -63,14 +63,16 @@ namespace LearningCommonsGui
 
             if (borrowResult is not null)
             {
+                var penalty = borrowResult.ComputePenalty();
                 var dataRow = Globals.BorrowingsDataTable.NewRow();
                 dataRow["Title"] = borrowResult.Book.Title;
                 dataRow["Author"] = borrowResult.Book.Author;
                 dataRow["Date Borrowed"] = borrowResult.BorrowDate;
                 dataRow["Date Returned"] = borrowResult.ReturnDate;
                 dataRow["Loan Period"] = borrowResult.LoanPeriod;
-                dataRow["Penalty"] = borrowResult.ComputePenalty();
+                dataRow["Penalty"] = penalty;
                 Globals.BorrowingsDataTable.Rows.Add(dataRow);
+                Globals.TotalPenalty += penalty;
 
                 this.Close();
                 return;

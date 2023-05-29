@@ -14,5 +14,6 @@ namespace LearningCommonsGui.Models
         public static Person User;
         public static bool IsStudent = false;
         public static DataTable BorrowingsDataTable = new DataTable();
+        public static int TotalPenalty = 0;
     }
 }
