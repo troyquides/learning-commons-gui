@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace LearningCommonsGui.Models.Borrowers
 {
-    internal class Staff: Person
+    // inherits everything from Person
+    public class Staff: Person
     {
         public Staff(string idNumber) : base(idNumber) { }
     }

@@ -14,6 +14,7 @@ namespace LearningCommonsGui.Models
         public DateOnly BorrowDate { get; set; }
         public DateOnly ReturnDate { get; set; }
 
+        // the book associated to the borrow transaction
         public Book Book { get; }
 
         public Borrowing(Book book, DateOnly borrowDate, DateOnly returnDate, int loadPeriod)
@@ -28,6 +29,7 @@ namespace LearningCommonsGui.Models
 
         public int ComputePenalty()
         {
+            // compute the number of days book was returned late
             var totalDays = ReturnDate.DayNumber - ExpiryDate.DayNumber;
 
             if (totalDays <= 0)

@@ -18,6 +18,7 @@ namespace LearningCommonsGui
         {
             InitializeComponent();
 
+            // bind the data source of the borrow history DataGrid. Initialize the columns
             Globals.BorrowingsDataTable.Columns.Add("Title", typeof(string));
             Globals.BorrowingsDataTable.Columns.Add("Author", typeof(string));
             Globals.BorrowingsDataTable.Columns.Add("Date Borrowed", typeof(DateOnly));
@@ -25,18 +26,10 @@ namespace LearningCommonsGui
             Globals.BorrowingsDataTable.Columns.Add("Loan Period", typeof(int));
             Globals.BorrowingsDataTable.Columns.Add("Penalty", typeof(string));
 
-            foreach (Borrowing borrowing in Globals.User.Borrowings)
-            {
-                var dataRow = Globals.BorrowingsDataTable.NewRow();
-                dataRow["Title"] = borrowing.Book.Title;
-                dataRow["Author"] = borrowing.Book.Author;
-                dataRow["Penalty"] = borrowing.ComputePenalty();
-                Globals.BorrowingsDataTable.Rows.Add(dataRow);
-            }
-
             DataGridBorrowList.DataSource = Globals.BorrowingsDataTable;
         }
 
+        // show the form to add a book
         private void BtnAddBook_Click(object sender, EventArgs e)
         {
             var dashboardFormLocation = this.Location;
@@ -45,11 +38,13 @@ namespace LearningCommonsGui
                 Location = dashboardFormLocation,
                 StartPosition = FormStartPosition.Manual
             };
+            // after adding a book, show the dashboard again
             addBookForm.FormClosing += delegate { this.Show(); };
             addBookForm.Show();
             this.Hide();
         }
 
+        // show the form to display the books added
         private void BtnShowBooks_Click(object sender, EventArgs e)
         {
             var dashboardFormLocation = this.Location;
@@ -63,6 +58,7 @@ namespace LearningCommonsGui
             this.Hide();
         }
 
+        // show the form to borrow a book
         private void BtnBorrowBook_Click(object sender, EventArgs e)
         {
             var dashboardFormLocation = this.Location;
@@ -73,6 +69,7 @@ namespace LearningCommonsGui
             };
             formBorrowBook.FormClosing += delegate
             {
+                // update the displayed total penalty
                 LabelPenaltyValue.Text = Globals.TotalPenalty.ToString();
                 this.Show();
             };
@@ -82,6 +79,7 @@ namespace LearningCommonsGui
 
         private void Dashboard_Load(object sender, EventArgs e)
         {
+            // dynamically show the id number of the logged in user
             this.LabelWelcome.Text = $"Current User: {Globals.User.IdNumber}";
             // make sure that label is always centered regardless of width
             this.LabelWelcome.Left = this.ClientSize.Width / 2 - this.LabelWelcome.Width / 2;

@@ -24,8 +24,10 @@ namespace LearningCommonsGui
 
         private void BtnSubmitBorrow_Click(object sender, EventArgs e)
         {
+            // reset validation text on every attempt
             LabelBorrowValidation.Visible = false;
 
+            // validation for no book selected
             if (ComboSelectedBook.SelectedItem is null)
             {
                 LabelBorrowValidation.Text = "No book selected";
@@ -33,9 +35,11 @@ namespace LearningCommonsGui
                 return;
             }
 
+            // use dynamic to access the underlying Book object for the selected item
             var selectedIsbn = (ComboSelectedBook.SelectedItem as dynamic).Isbn;
             var book = Globals.Books.Find(x => x.Isbn.Equals(selectedIsbn));
 
+            // handle the exceptional case that no book matches the ISBN from the combo box
             if (book is null)
             {
                 LabelBorrowValidation.Text = "Invalid book.";
@@ -46,6 +50,7 @@ namespace LearningCommonsGui
             var borrowDate = DateOnly.FromDateTime(DatePickerBorrowDate.Value);
             var returnDate = DateOnly.FromDateTime(DatePickerReturnDate.Value);
 
+            // ensure that the return and borrow date makes logical sense
             if (borrowDate >= returnDate)
             {
                 LabelBorrowValidation.Visible = true;
@@ -53,6 +58,7 @@ namespace LearningCommonsGui
                 return;
             }
 
+            // Borrow method called will depend the the type of Person
             var user = Globals.User;
             var borrowResult = user.Borrow(
                 book,
@@ -61,8 +67,10 @@ namespace LearningCommonsGui
                 Decimal.ToInt32(NumericLoanPeriod.Value)
             );
 
+            // Borrow returns null borrowing is unsuccessful
             if (borrowResult is not null)
             {
+                // on successful borrow, append it to the user's borrow history on the dashboard
                 var penalty = borrowResult.ComputePenalty();
                 var dataRow = Globals.BorrowingsDataTable.NewRow();
                 dataRow["Title"] = borrowResult.Book.Title;
@@ -72,12 +80,14 @@ namespace LearningCommonsGui
                 dataRow["Loan Period"] = borrowResult.LoanPeriod;
                 dataRow["Penalty"] = penalty;
                 Globals.BorrowingsDataTable.Rows.Add(dataRow);
-                Globals.TotalPenalty += penalty;
+                Globals.TotalPenalty = Globals.User.TotalPenalty();
 
+                // hide this form then switch back to the dashboard
                 this.Close();
                 return;
             }
 
+            // negative test case borrow unsuccessful
             LabelBorrowValidation.Visible = true;
             LabelBorrowValidation.Text = $"You have reached your borrow limit of {user.BorrowLimit}";
         }

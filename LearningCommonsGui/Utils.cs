@@ -9,29 +9,7 @@ namespace LearningCommonsGui
 {
     internal class Utils
     {
-        public static string InputChecker(string[] choices, string? input)
-        {
-            while (input == null || !Array.Exists(choices, element => element == input))
-            {
-                var choicesString = choices.ToString();
-                Console.Write($"Please input a valid value [{string.Join(", ", choices)}]: ");
-                input = Console.ReadLine();
-            }
-
-            return input;
-        }
-
-        public static string NullChecker(string? input)
-        {
-            while (input == null)
-            {
-                Console.Write("Please input a valid value: ");
-                input = Console.ReadLine();
-            }
-
-            return input;
-        }
-
+        // utility method to check for duplicated ISBN
         public static Boolean CheckDuplicateIsbn(List<Book> books, string isbn)
         {
             if (!books.Any())

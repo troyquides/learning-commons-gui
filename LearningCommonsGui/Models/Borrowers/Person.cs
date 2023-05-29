@@ -24,6 +24,7 @@ namespace LearningCommonsGui.Models.Borrowers
             BorrowLimit = borrowLimit;
         }
 
+        // default loan period is 5
         public virtual Borrowing? Borrow(Book book, DateOnly borrowDate, DateOnly returnDate, int loanPeriod = 5)
         {
             var borrowing = new Borrowing(book, borrowDate, returnDate, loanPeriod);

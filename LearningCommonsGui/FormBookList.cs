@@ -17,6 +17,7 @@ namespace LearningCommonsGui
         {
             InitializeComponent();
 
+            // define the data source of the data grid for avaiable books
             DataTable dt = new DataTable();
             dt.Columns.Add("Title", typeof(string));
             dt.Columns.Add("Author", typeof(string));

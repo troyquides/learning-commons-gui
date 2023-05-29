@@ -20,6 +20,7 @@ namespace LearningCommonsGui.Models
         }
 
         
+        // Formatted text dislayed on the options of the combo box when borrowing a book @see FormBorrowBook.cs
         public string DisplayName
         {
             get
